@@ -1,8 +1,13 @@
-const { connect, connection } = require('mongoose');
 
-connect('mongodb://localhost/NoSQL-Social-Network', {
+
+
+const mongoose = require('mongoose');
+
+// mongoose.set('strictQuery', false);
+
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/NoSQL-Social-Network', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 
-module.exports = connection;
+module.exports = mongoose.connection;

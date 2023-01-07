@@ -5,7 +5,7 @@ const {
 const reactionSchema = require('./Reaction');
 const dateFormat = require('../utils/dateFormat');
 
-// Schema to create Post model
+// Schema to create Thought model
 const thoughtSchema = new Schema({
     thoughtText: {
         type: String,
@@ -34,7 +34,7 @@ const thoughtSchema = new Schema({
     id: false,
 
 });
-// Create a virtual property `getTags` that gets the amount of tags associated with an application
+// Create a virtual property `reactionCount' that gets the amount of reactions associated with a thought
 thoughtSchema
     .virtual('reactionCount')
     // Getter
@@ -42,7 +42,7 @@ thoughtSchema
         return this.reactions.length;
     });
 
-// Initialize our Application model
+// Initialize our Thought model
 const Thought = model('Thought', thoughtSchema);
 
 module.exports = Thought;
