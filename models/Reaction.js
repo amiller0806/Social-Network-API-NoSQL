@@ -4,33 +4,30 @@ const {
 } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
-
 const reactionSchema = new Schema({
-   reactionId: {
+    reactionId: {
         type: Schema.Types.ObjectId,
-        default: () => new Types.ObjectId(),
+        default: () => new Types.ObjectId()
     },
-  reactionBody: {
+    reactionBody: {
         type: String,
         required: true,
-        maxLength: 280,
+        maxlength: 280
     },
-  
-  username: {
+    username: {
         type: String,
-        required: true,
+        required: true
     },
-
     createdAt: {
         type: Date,
         default: Date.now,
         get: timestamp => dateFormat(timestamp)
-    },
+    }
 }, {
     toJSON: {
-        getters: true,
+        getters: true
     },
-    id: false,
+    id: false
 });
 
 module.exports = reactionSchema;
