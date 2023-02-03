@@ -61,9 +61,8 @@
 [Github Repo](https://github.com/amiller0806/Social-Network-API-NoSQL)
 
 ### Video of Application
-TODO: Enter own video 
-Video of user going through the application and the generated HTML page 
-https://drive.google.com/file/d/1ul4l5CvhFtJh6s-OJ5Qz0UQBCbuJvasy/view 
+Video of user going through the application, starting in terminal and running requests on Insomnia:
+<iframe src="https://drive.google.com/file/d/1V-BjCvH0cY-CiHqKeKKSUfgt8PkS5Ls5/preview" width="640" height="480"></iframe>
 
   ### Email
 ariel.miller555@gmail.com
