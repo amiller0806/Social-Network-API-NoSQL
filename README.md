@@ -62,10 +62,11 @@
 
 ### Video of Application
 Video of user going through the application, starting in terminal and running requests on Insomnia:
-<iframe src="https://drive.google.com/file/d/1V-BjCvH0cY-CiHqKeKKSUfgt8PkS5Ls5/preview" width="640" height="480"></iframe>
 
 
-https://user-images.githubusercontent.com/109996105/216673426-36d15a6d-8e54-4d4b-8c74-d1dacccbea71.mp4
+https://user-images.githubusercontent.com/109996105/216675762-9a0788f4-8f4d-40a0-a5d4-d996b7c89d7e.mp4
+
+
 
 
   ### Email
