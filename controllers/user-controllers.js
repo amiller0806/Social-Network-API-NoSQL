@@ -2,9 +2,13 @@ const {
     User
 } = require('../models');
 
+
+// Source for some comments: https://mongoosejs.com/docs/middleware.html
+
 module.exports = {
     // Get all users
     getUsers(req, res) {
+        // Using Mongoose query middleware method find()
         User.find()
             .then((users) => res.json(users))
             .catch((err) => res.status(500).json(err));
@@ -48,7 +52,7 @@ module.exports = {
 
 
 
-    // Updates and user using the findOneAndUpdate method. Uses the ID, and the $set operator in mongodb to inject the request body. Enforces validation.
+    // Updates and user using the Mongoose middleware findOneAndUpdate method. Uses the ID, and the $set operator in mongodb to inject the request body. Enforces validation.
     updateUser(req, res) {
         User.findOneAndUpdate({
             _id: req.params.userId
@@ -116,34 +120,4 @@ module.exports = {
     
 
 
-        //     // update user by id
-        //     updateUser({
-        //         params,
-        //         body
-        //     }, res) {
-        //         User.findOneAndUpdate({
-        //                 _id: params.id
-        //             }, body, {
-        //                 new: true,
-        //                 runValidators: true
-        //             })
-        //             .then(dbUserData => {
-        //                 if (!dbUserData) {
-        //                     return res.status(404).json({
-        //                         message: 'No user found with this id!'
-        //                     });
-
-        //                 }
-        //                 res.json(dbUserData);
-        //             })
-        //             .catch(err => {
-        //                 res.status(500).json(err);
-        //             });
-        //     },
-
-        //     // delete user
-
-
-
-
-        // module.exports = userController;
+        

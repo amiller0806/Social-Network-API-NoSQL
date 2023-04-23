@@ -55,58 +55,66 @@ module.exports = {
     },
     // Updates and thoughts using the findOneAndUpdate method. Uses the ID, and the $set operator in mongodb to inject the request body. Enforces validation.
     updateThought(req, res) {
-        Thought.findOneAndUpdate({
-                _id: req.params.thoughtId
-            }, {
-                $set: req.body
-            }, {
-                runValidators: true,
-                new: true
-            })
-            .then((thought) =>
-
-                res.json(thought)
-            )
-            .catch((err) => {
-                console.log(err);
-                res.status(500).json(err);
-            });
+      // using Mongoose QUERY middleware findOneAndUpdate
+      Thought.findOneAndUpdate(
+        {
+          _id: req.params.thoughtId,
+        },
+        {
+          $set: req.body,
+        },
+        {
+          runValidators: true,
+          new: true,
+        }
+      )
+        .then((thought) => res.json(thought))
+        .catch((err) => {
+          console.log(err);
+          res.status(500).json(err);
+        });
     },
     // Deletes a thought from the database. Looks for an thought by ID.
     // Then if the thought exists, we look for any users associated with the thought based on the thought ID and update the thoughts array for the User.
     deleteThought(req, res) {
-        Thought.findOneAndRemove({
-                _id: req.params.thoughtId
-            })
-            .then((thought) =>
-                !thought ?
-                res.status(404).json({
-                    message: 'No thought with this id!'
-                }) :
-                User.findOneAndUpdate({
-                    thought: req.params.thoughtId
-                }, {
-                    $pull: {
-                        thoughts: req.params.thoughtId
-                    }
-                }, {
-                    new: true
-                })
-            )
-            .then((user) =>
-                !user ?
-                res.status(404).json({
-                    message: 'Thought created but no user with this id!',
-                }) :
-                res.json({
-                    message: 'Thought successfully deleted!'
-                })
-            )
-            .catch((err) => res.status(500).json(err));
+      // using Mongoose QUERY middleware findOneAndRemove
+      Thought.findOneAndRemove({
+        _id: req.params.thoughtId,
+      })
+        .then((thought) =>
+          !thought
+            ? res.status(404).json({
+                message: "No thought with this id!",
+              })
+            : User.findOneAndUpdate(
+                {
+                  thought: req.params.thoughtId,
+                },
+                {
+                  $pull: {
+                    thoughts: req.params.thoughtId,
+                  },
+                },
+                {
+                  new: true,
+                }
+              )
+        )
+        .then((user) =>
+          !user
+            ? res.status(404).json({
+                message: "Thought created but no user with this id!",
+              })
+            : res.json({
+                message: "Thought successfully deleted!",
+              })
+        )
+        .catch((err) => res.status(500).json(err));
     },
 
     // Creates a new reaction
     addReaction(req, res) {
+        // using Mongoose QUERY middleware findOneAndUpdate
         Thought.findOneAndUpdate({
                 _id: req.params.thoughtId
             }, {

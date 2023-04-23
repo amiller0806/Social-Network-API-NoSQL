@@ -27,7 +27,7 @@
 
   ### Installation
   In the terminal
-1.	cd to the directory: OOP- Team-profile-generator (ex. since it is downloaded in Desktop/Bootcamp for me, I type: “cd Desktop/Bootcamp/ OOP- Team-profile-generator”)
+1.	cd to the directory: OOP- Team-profile-generator (ex. since it is downloaded in Desktop/Bootcamp for me, I type: “cd Desktop/Bootcamp/Social-Network-API-NoSQL”)
 2.	Type “npm i” 
   ### Contribution
   Ariel Miller 
