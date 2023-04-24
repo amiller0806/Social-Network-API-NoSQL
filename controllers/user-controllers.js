@@ -64,9 +64,7 @@ module.exports = {
         })
         .then((user) =>
               res.json(user)
-                                //     res.status(404).json({
-                //         message: 'No user with this id!'
-                //     }) :
+    
             )
             .catch((err) => {
                 console.log(err);

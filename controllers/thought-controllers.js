@@ -3,6 +3,9 @@ const {
     User
 } = require('../models');
 
+
+// Use CRUD methods - Create resource ,Retrieve resource, Update resource, Delete resource
+// Here, we set up routes for CRUD methods & implement controller methods 
 module.exports = {
     // Function to get all of the thoughts by invoking the find() method with no arguments.
     // Then we return the results as JSON, and catch any errors. Errors are sent as JSON with a message and a 500 status code
